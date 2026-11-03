@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#101810">
-
-    <meta name="description" content="Biblioteca Virtual Universitaria. Accede a tus libros digitales desde la web o descarga nuestra aplicación para Windows.">
-
+    <meta name="description" content="Biblioteca Virtual Universitaria. Lee, organiza y escucha tus libros digitales.">
     <title>Biblioteca Virtual Universitaria</title>
 
     <style>
@@ -40,14 +38,10 @@
             text-decoration: none;
         }
 
-        /* HEADER */
-
         header {
-            width: 100%;
             max-width: 1200px;
             margin: auto;
             padding: 25px 30px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -65,18 +59,15 @@
             background: #263c2b;
             border: 1px solid #40553d;
             border-radius: 14px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             font-size: 25px;
         }
 
         .brand-name {
             font-size: 17px;
             font-weight: 800;
-            letter-spacing: -.5px;
         }
 
         .brand-subtitle {
@@ -89,14 +80,12 @@
         .version {
             color: var(--primary);
             border: 1px solid #40553d;
-            background: #182219;
+            background: var(--surface);
             padding: 9px 15px;
             border-radius: 30px;
             font-size: 11px;
             letter-spacing: 1px;
         }
-
-        /* HERO */
 
         .hero {
             max-width: 1100px;
@@ -149,8 +138,6 @@
             line-height: 1.8;
         }
 
-        /* BOTONES */
-
         .download-actions {
             display: flex;
             justify-content: center;
@@ -164,17 +151,15 @@
             min-width: 245px;
             padding: 20px 25px;
             border-radius: 13px;
-
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 8px;
-
             font-size: 16px;
             font-weight: 800;
-
             transition: .25s ease;
+            cursor: pointer;
         }
 
         .download:hover {
@@ -217,8 +202,6 @@
             margin-top: 18px;
         }
 
-        /* DIVISOR */
-
         .section-divider {
             width: 100%;
             max-width: 900px;
@@ -226,8 +209,6 @@
             background: var(--border);
             margin: 20px auto 65px;
         }
-
-        /* CARACTERÍSTICAS */
 
         .features-section {
             max-width: 1050px;
@@ -276,11 +257,9 @@
             height: 48px;
             background: #263c2b;
             border-radius: 12px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             font-size: 23px;
             margin-bottom: 20px;
         }
@@ -295,8 +274,6 @@
             font-size: 12px;
             line-height: 1.7;
         }
-
-        /* DESCARGA */
 
         .requirements {
             max-width: 700px;
@@ -319,8 +296,6 @@
             line-height: 2;
         }
 
-        /* FOOTER */
-
         footer {
             border-top: 1px solid var(--border);
             padding: 30px 20px;
@@ -332,8 +307,6 @@
         footer span {
             color: var(--primary);
         }
-
-        /* RESPONSIVE */
 
         @media (max-width: 800px) {
             .features {
@@ -415,36 +388,17 @@
 
 <body>
 
-    <!-- HEADER -->
-
     <header>
-
         <div class="brand">
-
-            <div class="brand-icon">
-                📚
-            </div>
-
+            <div class="brand-icon">📚</div>
             <div>
-                <div class="brand-name">
-                    Biblioteca Virtual
-                </div>
-
-                <div class="brand-subtitle">
-                    UNIVERSITARIA
-                </div>
+                <div class="brand-name">Biblioteca Virtual</div>
+                <div class="brand-subtitle">UNIVERSITARIA</div>
             </div>
-
         </div>
 
-        <div class="version">
-            VERSIÓN 1.0.0
-        </div>
-
+        <div class="version">VERSIÓN 1.0.0</div>
     </header>
-
-
-    <!-- HERO -->
 
     <main>
 
@@ -465,44 +419,26 @@
                 diseñada para acompañarte en tu formación académica.
             </p>
 
-
-            <!-- OPCIONES DE ACCESO -->
-
             <div class="download-actions">
 
-                <!-- VERSIÓN WEB -->
-
+                <!-- PROBAR EN LA WEB -->
                 <a
                     class="download download-web"
                     href="https://biblioteca-telematicos.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-
                     <div>🌐 Probar en la web</div>
-
-                    <span>
-                        Acceder desde el navegador
-                    </span>
-
+                    <span>Acceder desde el navegador</span>
                 </a>
 
-
-                <!-- VERSIÓN DE ESCRITORIO -->
-
+                <!-- DESCARGA DIRECTA DESDE GOOGLE DRIVE -->
                 <a
                     class="download download-desktop"
-                    href="https://drive.google.com/uc?export=download&id=10acMsTCZQ7VL1qb9Sr-v4fRhj5AXn8iN"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="https://drive.usercontent.google.com/download?id=10acMsTCZQ7VL1qb9Sr-v4fRhj5AXn8iN&export=download&confirm=t"
                 >
-
                     <div>↓ Descargar para Windows</div>
-
-                    <span>
-                        Instalador para PC · 64 bits
-                    </span>
-
+                    <span>Instalador para PC · 64 bits</span>
                 </a>
 
             </div>
@@ -513,112 +449,62 @@
 
         </section>
 
-
         <div class="section-divider"></div>
-
-
-        <!-- CARACTERÍSTICAS -->
 
         <section class="features-section">
 
             <div class="section-heading">
-
-                <h2>
-                    Todo lo que necesitas para leer
-                </h2>
-
+                <h2>Todo lo que necesitas para leer</h2>
                 <p>
                     Herramientas diseñadas para mejorar tu experiencia de lectura.
                 </p>
-
             </div>
-
 
             <div class="features">
 
                 <article class="feature">
-
-                    <div class="feature-icon">
-                        📖
-                    </div>
-
-                    <h3>
-                        PDF y EPUB
-                    </h3>
-
+                    <div class="feature-icon">📖</div>
+                    <h3>PDF y EPUB</h3>
                     <p>
                         Accede a tus documentos y libros digitales
                         desde un mismo lugar.
                     </p>
-
                 </article>
 
-
                 <article class="feature">
-
-                    <div class="feature-icon">
-                        🔊
-                    </div>
-
-                    <h3>
-                        Lectura en voz alta
-                    </h3>
-
+                    <div class="feature-icon">🔊</div>
+                    <h3>Lectura en voz alta</h3>
                     <p>
                         Escucha tus libros digitales mediante
                         síntesis de voz.
                     </p>
-
                 </article>
 
-
                 <article class="feature">
-
-                    <div class="feature-icon">
-                        🔖
-                    </div>
-
-                    <h3>
-                        Progreso de lectura
-                    </h3>
-
+                    <div class="feature-icon">🔖</div>
+                    <h3>Progreso de lectura</h3>
                     <p>
                         Retoma tus lecturas y continúa
                         donde las dejaste.
                     </p>
-
                 </article>
 
-
                 <article class="feature">
-
-                    <div class="feature-icon">
-                        🌿
-                    </div>
-
-                    <h3>
-                        Diseño intuitivo
-                    </h3>
-
+                    <div class="feature-icon">🌿</div>
+                    <h3>Diseño intuitivo</h3>
                     <p>
                         Una interfaz cómoda y moderna
                         para concentrarte en leer.
                     </p>
-
                 </article>
 
             </div>
 
         </section>
 
-
-        <!-- REQUISITOS -->
-
         <section class="requirements">
 
-            <h2>
-                Requisitos del sistema
-            </h2>
+            <h2>Requisitos del sistema</h2>
 
             <p>
                 Windows 10 o superior<br>
@@ -630,16 +516,11 @@
 
     </main>
 
-
-    <!-- FOOTER -->
-
     <footer>
-
         <p>
             © 2026 <span>Biblioteca Virtual Universitaria</span>.
             Todos los derechos reservados.
         </p>
-
     </footer>
 
 </body>
