@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101810">
+
+    <meta name="description" content="Biblioteca Virtual Universitaria. Accede a tus libros digitales desde la web o descarga nuestra aplicación para Windows.">
+
+    <title>Biblioteca Virtual Universitaria</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #101810;
+            --surface: #182219;
+            --surface-light: #202e21;
+            --primary: #b9d6a2;
+            --primary-light: #d0e5bf;
+            --text: #edf3e9;
+            --muted: #aab8a7;
+            --border: #29372a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: #263c2b;
+            border: 1px solid #40553d;
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        .brand-name {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .brand-subtitle {
+            color: #91a18e;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            margin-top: 4px;
+        }
+
+        .version {
+            color: var(--primary);
+            border: 1px solid #40553d;
+            background: #182219;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 95px 25px 65px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: #8bbd7020;
+            filter: blur(110px);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(43px, 7vw, 78px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* BOTONES */
+
+        .download-actions {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .download {
+            min-width: 245px;
+            padding: 20px 25px;
+            border-radius: 13px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            transition: .25s ease;
+        }
+
+        .download:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.12);
+        }
+
+        .download-web {
+            color: #d4e8c7;
+            background: #263c2b;
+            border: 1px solid #58734f;
+        }
+
+        .download-web span {
+            color: #a8bd9c;
+        }
+
+        .download-desktop {
+            color: #142015;
+            background: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .download-desktop:hover {
+            background: var(--primary-light);
+        }
+
+        .download-desktop span {
+            color: #40543a;
+        }
+
+        .download span {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .download-info {
+            color: #839181;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        /* DIVISOR */
+
+        .section-divider {
+            width: 100%;
+            max-width: 900px;
+            height: 1px;
+            background: var(--border);
+            margin: 20px auto 65px;
+        }
+
+        /* CARACTERÍSTICAS */
+
+        .features-section {
+            max-width: 1050px;
+            margin: auto;
+            padding: 0 25px 70px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 29px;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feature {
+            padding: 27px 20px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 15px;
+            transition: .25s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: #58734f;
+            background: var(--surface-light);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #263c2b;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #91a18e;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* DESCARGA */
+
+        .requirements {
+            max-width: 700px;
+            margin: 0 auto 70px;
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .requirements h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .requirements p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            text-align: center;
+            color: #758373;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--primary);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header {
+                padding: 20px;
+            }
+
+            .version {
+                font-size: 9px;
+                padding: 7px 10px;
+            }
+
+            .brand-name {
+                font-size: 14px;
+            }
+
+            .brand-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero {
+                padding: 65px 20px 55px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .download-actions {
+                flex-direction: column;
+            }
+
+            .download {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .feature {
+                padding: 20px 15px;
+            }
+
+            .feature h3 {
+                font-size: 13px;
+            }
+
+            .feature p {
+                font-size: 11px;
+            }
+
+            .section-heading h2 {
+                font-size: 24px;
+            }
+
+            .requirements {
+                margin: 0 20px 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📚
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    Biblioteca Virtual
+                </div>
+
+                <div class="brand-subtitle">
+                    UNIVERSITARIA
+                </div>
+            </div>
+
+        </div>
+
+        <div class="version">
+            VERSIÓN 1.0.0
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="tag">
+                BIBLIOTECA DIGITAL UNIVERSITARIA
+            </div>
+
+            <h1>
+                Tu biblioteca.<br>
+                <span>Sin límites.</span>
+            </h1>
+
+            <p class="hero-description">
+                Una nueva forma de acceder a tus libros digitales.
+                Lee, organiza y escucha tus libros desde una experiencia
+                diseñada para acompañarte en tu formación académica.
+            </p>
+
+
+            <!-- OPCIONES DE ACCESO -->
+
+            <div class="download-actions">
+
+                <!-- VERSIÓN WEB -->
+
+                <a
+                    class="download download-web"
+                    href="https://biblioteca-telematicos.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div>🌐 Probar en la web</div>
+
+                    <span>
+                        Acceder desde el navegador
+                    </span>
+
+                </a>
+
+
+                <!-- VERSIÓN DE ESCRITORIO -->
+
+                <a
+                    class="download download-desktop"
+                    href="https://drive.google.com/uc?export=download&id=TU_ID_DE_ARCHIVO"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div>↓ Descargar para Windows</div>
+
+                    <span>
+                        Instalador para PC · 64 bits
+                    </span>
+
+                </a>
+
+            </div>
+
+            <div class="download-info">
+                Elige cómo quieres disfrutar de tu biblioteca digital.
+            </div>
+
+        </section>
+
+
+        <div class="section-divider"></div>
+
+
+        <!-- CARACTERÍSTICAS -->
+
+        <section class="features-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Todo lo que necesitas para leer
+                </h2>
+
+                <p>
+                    Herramientas diseñadas para mejorar tu experiencia de lectura.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <article class="feature">
+
+                    <div class="feature-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        PDF y EPUB
+                    </h3>
+
+                    <p>
+                        Accede a tus documentos y libros digitales
+                        desde un mismo lugar.
+                    </p>
+
+                </article>
+
+
+                <article class="feature">
+
+                    <div class="feature-icon">
+                        🔊
+                    </div>
+
+                    <h3>
+                        Lectura en voz alta
+                    </h3>
+
+                    <p>
+                        Escucha tus libros digitales mediante
+                        síntesis de voz.
+                    </p>
+
+                </article>
+
+
+                <article class="feature">
+
+                    <div class="feature-icon">
+                        🔖
+                    </div>
+
+                    <h3>
+                        Progreso de lectura
+                    </h3>
+
+                    <p>
+                        Retoma tus lecturas y continúa
+                        donde las dejaste.
+                    </p>
+
+                </article>
+
+
+                <article class="feature">
+
+                    <div class="feature-icon">
+                        🌿
+                    </div>
+
+                    <h3>
+                        Diseño intuitivo
+                    </h3>
+
+                    <p>
+                        Una interfaz cómoda y moderna
+                        para concentrarte en leer.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- REQUISITOS -->
+
+        <section class="requirements">
+
+            <h2>
+                Requisitos del sistema
+            </h2>
+
+            <p>
+                Windows 10 o superior<br>
+                Arquitectura de 64 bits<br>
+                Conexión a Internet para acceder a los servicios digitales.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Biblioteca Virtual Universitaria</span>.
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
