@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -148,7 +147,7 @@
         }
 
         .download {
-            min-width: 245px;
+            min-width: 235px;
             padding: 20px 25px;
             border-radius: 13px;
             display: flex;
@@ -189,6 +188,16 @@
 
         .download-desktop span {
             color: #40543a;
+        }
+
+        .download-apk {
+            color: #d4e8c7;
+            background: #1d3022;
+            border: 1px solid #759969;
+        }
+
+        .download-apk span {
+            color: #a8bd9c;
         }
 
         .download span {
@@ -432,19 +441,30 @@
                     <span>Acceder desde el navegador</span>
                 </a>
 
-                <!-- DESCARGA DIRECTA DESDE GOOGLE DRIVE -->
+                <!-- DESCARGA DIRECTA .EXE (WINDOWS) -->
                 <a
                     class="download download-desktop"
-                    href="https://drive.usercontent.google.com/download?id=10acMsTCZQ7VL1qb9Sr-v4fRhj5AXn8iN&export=download&confirm=t"
+                    href="https://github.com/Eth4nSP/Biblioteca-Virtual/releases/download/1.0.0/Biblioteca.Virtual.Universitaria.Setup.1.0.0.exe"
+                    download
                 >
                     <div>↓ Descargar para Windows</div>
-                    <span>Instalador para PC · 64 bits</span>
+                    <span>Instalador PC (.exe) · 64 bits</span>
+                </a>
+
+                <!-- DESCARGA DIRECTA .APK (ANDROID) -->
+                <a
+                    class="download download-apk"
+                    href="https://github.com/Eth4nSP/Biblioteca-Virtual/releases/download/1.0.0/app-release.apk"
+                    download
+                >
+                    <div>📱 Descargar para Android</div>
+                    <span>Instalador Móvil (.apk)</span>
                 </a>
 
             </div>
 
             <div class="download-info">
-                Elige cómo quieres disfrutar de tu biblioteca digital.
+                Elige cómo quieres disfrutar de tu biblioteca digital (Web, Windows o Android).
             </div>
 
         </section>
@@ -507,8 +527,7 @@
             <h2>Requisitos del sistema</h2>
 
             <p>
-                Windows 10 o superior<br>
-                Arquitectura de 64 bits<br>
+                Windows 10 o superior (64 bits) · Android 8.0 o superior<br>
                 Conexión a Internet para acceder a los servicios digitales.
             </p>
 
